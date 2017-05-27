@@ -45,6 +45,15 @@ int main(int argc, char **argv)
     Ki = stod(argv[2]);
     Kd = stod(argv[3]);
   } else {
+    // Tuned values for the PID parameters. These values were found by twiddle algorithm.
+    // Because running the algorithm manually is a bit cumbersome I implemented a Python
+    // script that does the twiddling and runs this program with the parameters on the
+    // command line. The simulator has to be operated manually, however. 
+    // I found that the integral coefficient did not have any positive effect on the 
+    // car's performance. That is reasonable as there is no systematic bias in the
+    // simulation that the integration would help to remove. The proportional coefficient
+    // is quite small and larger values seemed to induce oscillations as mentioned in the
+    // course videos. The largest effect seems to come from the differential parameter.
     Kp = 0.09;
     Ki = 0.0;
     Kd = 1.9;
